@@ -1,2 +1,17 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<div class="container">
+  <h1>Détails de la liste <%= @list.name %> </h1>
+  <div>
+    <p>Movies in the list:</p>
+    <% @list.bookmarks.each do |bkm| %>
+      <h3><%= bkm.movie.title %></h3> <br>
+      <%= bkm.movie.overview %> <br>
+      <%= bkm.movie.rating %> <br>
+      <h4>My comment:</h4>
+      <%= bkm.comment %>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to 'Add bookmark to list', new_list_bookmark_path(@list) %>
+    <%= link_to 'Back to all lists', lists_path %>
+  </div>
+</div>

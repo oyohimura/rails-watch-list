@@ -1,2 +1,20 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<div class="container">
+  <h1>All available lists (<%= @lists.count %>)</h1>
+  <% @lists.each do |list| %>
+    <div>
+      <p>Name / category : <%= list.name %></p>
+      <% unless list.bookmarks.length.zero? %>
+        <p>Associated movies: </p>
+        <% list.bookmarks.each do |bkm| %>
+          <p>Movie title: <%= bkm.movie.title %> </p>
+          <p>Comment: <%= bkm.comment %> </p>
+          <p><%= link_to 'Delete', bookmark_path(bkm), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></p>
+        <% end %>
+      <% end %>
+    </div>
+    <%= link_to 'More details', list_path(list) %>
+  <% end %>
+  <div>
+    <%= link_to 'Create new list', new_list_path %>
+  </div>
+</div>

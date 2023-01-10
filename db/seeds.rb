@@ -9,6 +9,8 @@
 require 'open-uri'
 
 puts 'Destroying existing db...'
+Bookmark.destroy_all
+List.destroy_all
 Movie.destroy_all
 
 # db/seeds.rb

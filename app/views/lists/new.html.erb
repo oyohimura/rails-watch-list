@@ -3,6 +3,7 @@
   <div>
     <%= simple_form_for @list do |f| %>
       <%= f.input :name %>
+      <%= f.input :poster, as: :file %>
       <%= f.button :submit, class: 'btn btn-primary' %>
     <% end %>
   </div>

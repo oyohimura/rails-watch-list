@@ -1,9 +1,9 @@
-<div class="g-col-4">
+<div class="g-col-2">
   <div class="card text-bg-dark">
-    <%= image_tag list.movies.first.poster_url, alt: list.name, width: '8rem', class: 'card-img center' %>
-    <div class="card-img-overlay">
+    <%= image_tag list.movies.first.poster_url, alt: list.name, style: "display: block, max-height: 100px, width: auto", class: 'card-img center' %>
+    <div class="card-img-overlay inline">
       <%= link_to list_path(list) do %>
-        <h5 class='card-title'><%= list.name %></h5>
+        <h5 class='card-title', style='vertical-align: middle;'><%= list.name %></h5>
       <% end %>
     </div>
   </div>

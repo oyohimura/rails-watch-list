@@ -1,9 +1,9 @@
 <div class="container">
   <h1>All available lists (<%= @lists.count %>)</h1>
-    <div class="grid text-center">
-      <% @lists.each do |list| %>
-        <%= render list %>
-      <% end %>
-    </div>
+  <%# <div class="grid text-center"> %>
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <%= render list %>
+    <% end %>
   </div>
 </div>

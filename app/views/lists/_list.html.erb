@@ -1,14 +1,9 @@
-<div class="g-col-2">
-  <div class="card text-bg-dark">
-    <% if list.poster.key %>
-      <%= cl_image_tag list.poster.key, height: 300, crop: :fill %>
-    <% elsif !list.movies.count.zero? %>
-      <%= image_tag list.movies.first.poster_url, alt: list.name, style: "display: block, max-height: 100px, width: auto", class: 'card-img center' %>
-    <% end %>
-    <div class="card-img-overlay inline">
-      <%= link_to list_path(list) do %>
-        <h5 class='card-title', style='vertical-align: middle;'><%= list.name %></h5>
-      <% end %>
-    </div>
-  </div>
+<% if list.poster.key %>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.poster.key %>)">
+<% elsif !list.movies.count.zero? %>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.movies.first.poster_url %>)">
+<% else %>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRkl9qnArQ7Q-2Kw1u9OOalX6S42BLBXMM3x2xCkM-yA&s)">
+<% end %>
+  <%= list.name %>
 </div>

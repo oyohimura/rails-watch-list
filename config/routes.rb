@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   get 'bookmarks/:id', to: 'bookmarks#show', as: 'bookmark'
   post 'lists/:list_id/bookmarks', to: 'bookmarks#create', as: 'list_bookmarks'
+  post 'lists/:list_id/bookmarks', to: 'bookmarks#create', as: 'bookmarks'
   delete 'bookmarks/:id', to: 'bookmarks#destroy'
 
   root to: 'lists#index'
